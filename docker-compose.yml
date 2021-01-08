@@ -1,6 +1,16 @@
 version: '2.4'
 services:
   # MySQL database used for local development until we get access to an Oracle cloud instance
+  myapp:
+    image: myapp
+    environment:
+      - "spring.datasource.url=jdbc:mysql://db:3306/testdb"
+      - "spring.datasource.username=root"
+      - "spring.datasource.password=asd1234mlp"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
   db:
     image: mysql:8.0.19
     ports:
@@ -8,5 +18,3 @@ services:
     environment:
       - MYSQL_DATABASE=testdb
       - MYSQL_ROOT_PASSWORD=asd1234mlp
-    volumes:
-      - ./ingestion-db:/var/lib/mysql5

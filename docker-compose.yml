@@ -1,0 +1,12 @@
+version: '2.4'
+services:
+  # MySQL database used for local development until we get access to an Oracle cloud instance
+  db:
+    image: mysql:8.0.19
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=testdb
+      - MYSQL_ROOT_PASSWORD=asd1234mlp
+    volumes:
+      - ./ingestion-db:/var/lib/mysql5

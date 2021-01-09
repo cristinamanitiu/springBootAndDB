@@ -4,9 +4,10 @@ services:
   myapp:
     image: myapp
     environment:
-      - "spring.datasource.url=jdbc:mysql://db:3306/testdb"
+      - "spring.datasource.url=jdbc:mysql://db:3306/testdb?allowPublicKeyRetrieval=true&useSSL=false"
       - "spring.datasource.username=root"
       - "spring.datasource.password=asd1234mlp"
+      - "spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver"
     ports:
       - "8080:8080"
     depends_on:
